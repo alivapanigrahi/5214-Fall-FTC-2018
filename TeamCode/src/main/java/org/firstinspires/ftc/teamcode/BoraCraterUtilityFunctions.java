@@ -33,7 +33,7 @@ package org.firstinspires.ftc.teamcode;
  * Created by aliva on 9/28/18.
  */
 
-public class DepotUtilityFunctions extends BoraDepotPrototype {
+public class BoraCraterUtilityFunctions extends BoraCraterPrototype {
     // drive forward function
     public static void driveStraight(double power, int time) {
 

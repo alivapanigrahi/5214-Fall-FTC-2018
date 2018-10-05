@@ -74,7 +74,7 @@ public class BoraCraterPrototype extends LinearOpMode {
         while (opModeIsActive()) {
 
             // CRATER AUTONOMOUS PROCEDURE
-                CraterAutonomousFunction.CraterAutonomousProcedure();
+                BoraCraterAutonomousFunction.CraterAutonomousProcedure();
         }
     }
 }
