@@ -29,28 +29,23 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.configuration.Utility;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
 
 /**
  * Created by aliva on 9/28/18.
  */
 
-@Autonomous(name="Bora Depot", group="Team 5214")
+@Autonomous(name="West Coast Depot", group="Team 5214")
 //@Disabled
-public class BoraDepotPrototype extends LinearOpMode {
+public class WestCoastDepotPrototype extends LinearOpMode {
 
     // declare and initialize motors
     protected ElapsedTime runtime = new ElapsedTime();
-    protected static DcMotor leftFront;
-    protected static DcMotor rightFront;
-    protected static DcMotor leftBack;
-    protected static DcMotor rightBack;
+    protected static DcMotor leftMain;
+    protected static DcMotor rightMain;
 
     @Override
 
@@ -60,14 +55,11 @@ public class BoraDepotPrototype extends LinearOpMode {
         telemetry.update();
 
         // hardware mapping
-        leftFront  = hardwareMap.get(DcMotor.class, "LF");
-        rightFront = hardwareMap.get(DcMotor.class, "RF");
-        leftBack  = hardwareMap.get(DcMotor.class, "LB");
-        rightBack = hardwareMap.get(DcMotor.class, "RB");
+        leftMain  = hardwareMap.get(DcMotor.class, "LM");
+        leftMain = hardwareMap.get(DcMotor.class, "RM");
 
         // reverse right motors
-        rightFront.setDirection(DcMotor.Direction.REVERSE);
-        rightBack.setDirection(DcMotor.Direction.REVERSE);
+        rightMain.setDirection(DcMotor.Direction.REVERSE);
 
         // wait for start (driver presses PLAY)
         waitForStart();
@@ -77,7 +69,7 @@ public class BoraDepotPrototype extends LinearOpMode {
         while (opModeIsActive()) {
 
             // DEPOT AUTONOMOUS PROCEDURE
-                BoraDepotAutonomousFunction.DepotAutonomousProcedure();
+                WestCoastDepotAutonomousFunction.WestCoastDepotAutonomousProcedure();
         }
     }
 }

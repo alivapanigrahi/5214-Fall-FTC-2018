@@ -29,55 +29,34 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.configuration.Utility;
-import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
-
 /**
  * Created by aliva on 9/28/18.
  */
 
-@Autonomous(name="Bora Depot", group="Team 5214")
-//@Disabled
-public class BoraDepotPrototype extends LinearOpMode {
+public class WestCoastDepotUtilityFunctions extends WestCoastDepotPrototype {
+    // drive forward function
+    public static void driveStraight(double power, int time) {
 
-    // declare and initialize motors
-    protected ElapsedTime runtime = new ElapsedTime();
-    protected static DcMotor leftFront;
-    protected static DcMotor rightFront;
-    protected static DcMotor leftBack;
-    protected static DcMotor rightBack;
+        // drive straight
+        leftMain.setPower(power);
+        rightMain.setPower(power);
+    }
+    public static void driveReverse(double power, int time) {
 
-    @Override
+        // drive reverse
+        leftMain.setPower(-power);
+        rightMain.setPower(-power);
+    }
+    public static void turnRight(double power, int time) {
 
-    public void runOpMode() {
+        // turn right
+        leftMain.setPower(power);
+        rightMain.setPower(-power);
+    }
+    public static void turnLeft(double power, int time) {
 
-        telemetry.addData("Status", "Initialized");
-        telemetry.update();
-
-        // hardware mapping
-        leftFront  = hardwareMap.get(DcMotor.class, "LF");
-        rightFront = hardwareMap.get(DcMotor.class, "RF");
-        leftBack  = hardwareMap.get(DcMotor.class, "LB");
-        rightBack = hardwareMap.get(DcMotor.class, "RB");
-
-        // reverse right motors
-        rightFront.setDirection(DcMotor.Direction.REVERSE);
-        rightBack.setDirection(DcMotor.Direction.REVERSE);
-
-        // wait for start (driver presses PLAY)
-        waitForStart();
-        runtime.reset();
-
-        // run until the end of the match (driver presses STOP)
-        while (opModeIsActive()) {
-
-            // DEPOT AUTONOMOUS PROCEDURE
-                BoraDepotAutonomousFunction.DepotAutonomousProcedure();
-        }
+        // turn left
+        leftMain.setPower(-power);
+        rightMain.setPower(power);
     }
 }
