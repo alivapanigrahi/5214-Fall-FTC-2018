@@ -38,16 +38,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Created by aliva on 10/4/18.
  */
 
-@Autonomous(name="Bora Crater", group="Team 5214")
+@Autonomous(name="West Coast Crater", group="Team 5214")
 //@Disabled
 public class WestCoastCraterPrototype extends LinearOpMode {
 
     // declare and initialize motors
     protected ElapsedTime runtime = new ElapsedTime();
-    protected static DcMotor leftFront;
-    protected static DcMotor rightFront;
-    protected static DcMotor leftBack;
-    protected static DcMotor rightBack;
+    protected static DcMotor leftMain;
+    protected static DcMotor rightMain;
 
     @Override
 
@@ -56,15 +54,12 @@ public class WestCoastCraterPrototype extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-        // hardware mapping
-        leftFront  = hardwareMap.get(DcMotor.class, "LF");
-        rightFront = hardwareMap.get(DcMotor.class, "RF");
-        leftBack  = hardwareMap.get(DcMotor.class, "LB");
-        rightBack = hardwareMap.get(DcMotor.class, "RB");
+        // hardware
+        leftMain  = hardwareMap.get(DcMotor.class, "LM");
+        rightMain = hardwareMap.get(DcMotor.class, "RM");
 
-        // reverse right motors
-        rightFront.setDirection(DcMotor.Direction.REVERSE);
-        rightBack.setDirection(DcMotor.Direction.REVERSE);
+        // reverse right motor
+        rightMain.setDirection(DcMotor.Direction.REVERSE);
 
         // wait for start (driver presses PLAY)
         waitForStart();
@@ -73,8 +68,9 @@ public class WestCoastCraterPrototype extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            // CRATER AUTONOMOUS PROCEDURE
-                CraterAutonomousFunction.CraterAutonomousProcedure();
+
+            telemetry.update();
+            }
         }
     }
-}
+
